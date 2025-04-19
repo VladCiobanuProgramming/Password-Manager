@@ -1,9 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
+
+        Path passwordPath = Path.of(System.getProperty("user.home"), "text.txt");
+
+
         SwingUtilities.invokeLater(Main::createAndShowGUI);
     }
     private static void createAndShowGUI() {
@@ -36,7 +42,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 JFrame addFrame = new JFrame("Password Manager (form)");
                 addFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                addFrame.setSize(500,400);
+                addFrame.setSize(500,350);
                 addFrame.setVisible(true);
                 addFrame.setLocationRelativeTo(null);
 
@@ -46,7 +52,7 @@ public class Main {
                 addPanel.setLayout(new GridBagLayout());
                 GridBagConstraints gbc = new GridBagConstraints();
                 gbc.insets = new Insets(5, 5, 5, 5);
-
+                // TODO: set fonts for the Text Fields , make text more appealing
                 // Row 1 : Folder name + Text Field
                 gbc.gridx = 0;
                 gbc.gridy = 0;
